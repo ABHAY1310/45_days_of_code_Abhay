@@ -1,4 +1,7 @@
 //#DAY-1
+//problem link:-https://leetcode.com/problems/contains-duplicate-ii/description/
+//Time complexity:-O(N)
+//Aux. Space complexity:-O(N)
 class Solution {
 public:
     bool containsNearbyDuplicate(vector<int>& nums, int k) {

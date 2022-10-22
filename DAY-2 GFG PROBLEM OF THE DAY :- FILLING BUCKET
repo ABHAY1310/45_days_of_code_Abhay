@@ -1,0 +1,32 @@
+//Filling Bucket
+//LINK:-https://practice.geeksforgeeks.org/problems/filling-bucket0529/1
+// que:- Given a Bucket having a capacity of N litres and the task is to determine that by how many ways you can fill it using two bottles of capacity of 1 Litre and 2 Litre only. Find the answer modulo 108.
+// TEST CASE 1  INPUT -4 OUTPUT-5   TEST CASE 2 INPUT 3 OUTPUT 3
+//obeservation:- MODIFIED FIBONACCI SERIES
+class Solution{
+public:
+
+int fillingBucket(int N) {
+        // code here
+       long long int a=1;
+      long long  int b=2;
+        // int c=a+b;
+      long long  int c=0;
+        long long int mod=100000000;
+        if(N==1){
+            return 1;
+        }
+        if(N==2){
+            return 2;
+        }
+        while(N-2>0){
+            c=(a+b)%mod;
+            a=b;
+            b=c;
+             
+            N--;
+           
+        }
+        return b%(100000000);
+    }
+    };

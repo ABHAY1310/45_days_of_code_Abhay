@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        int i=0;
+        unordered_map<int,int>mp;
+        int n=nums.size();
+        vector<int>ans;
+        int sum=0;
+        // int n=nums.size()
+        int total=((n*(n+1)))/2;
+        for(int i=0;i<nums.size();i++){
+        sum +=nums[i];
+          mp[nums[i]]++;
+
+        }
+        int count=total-sum;
+        for (int i=0;i<nums.size();i++)
+        {
+          if(mp[nums[i]]==2){
+              ans.push_back(nums[i]);
+               ans.push_back(count+nums[i]);
+              break;
+          }
+        }
+       
+        return ans;
+        
+    }
+};

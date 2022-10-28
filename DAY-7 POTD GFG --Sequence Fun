@@ -1,0 +1,23 @@
+// TIME COMPLEXITY :- O(N)
+// SPACE COMPLEXITY:- O(1)
+// SEQUENCE :- 2,5,16,65 .......
+// You have a sequence 2,5,16,65,........Given an integer n as input. You have to find the value at the nth position in the sequence.
+// ON OBSERVING THE SEQUENCE 5=2*2 + 1 , 16 = 5*3 + 1, 65 = 16*4 +1 //
+class Solution {
+	public:
+// 	int i=0;
+	int mod=1000000007;
+		int NthTerm(int n){
+		    // Code  here
+		    
+		   long long int j=n;
+		   long long int term=2;
+		   long long int c=2;
+		    for(int i=1;i<j;i++){
+		        term=((term%mod)*(c%mod)+1)%mod;
+		        c++;
+		    }
+		    return (int)term%mod;
+		}
+
+};

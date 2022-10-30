@@ -1,0 +1,42 @@
+/* Initially, the zoo have a single chick. A chick gives birth to 2 chicks every day and the life expectancy of a chick is 6 days. 
+Zoo officials want to buy food for chicks so they want to know the number of chicks on an Nth day. Help the officials with this task
+Input: N = 2 
+Output: 3
+Explanation: First day there is only 1 chick.
+On second day total number of chicks = 3.
+*/
+
+//TIME COMPLEXITY:-O(n)
+//AUX. SPACE COMPLEXITY:- O(n)
+class Solution {
+public:
+	
+
+
+
+long long int NoOfChicks(int n){
+	    // Code here
+	  long long  int nav[n];
+	  nav[0]=1;
+	  long long int sum=1;
+	  int dead=0;
+	  for(int i=1;i<n;i++){
+	      if(i>=6){
+	        sum -=nav[dead];
+	        dead++;
+	         
+	         
+	          
+	      }
+	      nav[i]=sum*2;
+	      sum +=nav[i];
+	      
+	     
+	    
+	       
+	          
+	    
+	  }
+	  return sum;  
+	}
+  };

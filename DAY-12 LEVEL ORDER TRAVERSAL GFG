@@ -1,0 +1,51 @@
+
+//TIME COMPLEXITY:-O(N)
+//AUX. SPACE COMPLEXITY:-O(H)
+/*THROUGH THIS CODE WE CAN PRINT LEVEL ORDER TRAVERSAL IN SEQUENCEWISE BUT IF WE WANT PRINT IT IN LEVEL WISE e.g
+1
+1 2
+we will use NULL Strategy */
+//problem link :-https://practice.geeksforgeeks.org/batch/dsa-4/track/DSASP-Tree/problem/level-order-traversal
+class Solution
+{
+    public:
+    //Function to return the level order traversal of a tree.
+    vector<int> levelOrder(Node* node)
+    {
+      //Your code here
+      queue<Node*>q;
+      q.push(node);
+     vector<int>v;
+        if(node==NULL)
+
+      {
+
+          return v;
+
+      }
+
+
+    //   q.push(NULL);
+      while(!q.empty()){
+           
+           Node* node= q.front();
+             v.push_back(node->data);
+            q.pop();
+        //   if(node==NULL){
+        //       q.front();
+        //       v.push_back(NULL);
+        //       q.push(NULL);
+        //   }
+          if(node->left!=NULL){
+             
+              q.push(node->left);
+          }
+           if(node->right!=NULL){
+              q.push(node->right);
+          }
+          
+          
+      }
+      return v;
+    }
+};

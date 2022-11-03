@@ -1,0 +1,29 @@
+
+//TIME COMPLEXITY & SPACE COMPLEXITY :-O(N)
+class Solution {
+public:
+    int climbStairs(int n) {
+        // vector<int>v;
+        // v[0]=0;
+        //  v[1]=1;
+        //  v[2]=1;
+        if(n==1 || n==2){
+            return n;
+        }
+        int a=1;
+        int b=1;
+
+        int c=a+b;
+        while(n-1 >0){
+c=a+b;
+b=a;
+a=c;
+n--;
+        }
+//         for(int i=3;i<n+1;i++){
+// v[i]=v[i-1]+v[i-2];
+//         }
+//         return v[n];
+        return c;
+    }
+};

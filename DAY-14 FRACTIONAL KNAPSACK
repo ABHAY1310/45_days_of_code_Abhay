@@ -1,0 +1,48 @@
+struct Item{
+    int value;
+    int weight;
+};
+*/
+
+
+class Solution
+{
+     public:
+    //Function to get the maximum total value in the knapsack.
+    double static comp(Item a,Item b){
+        
+        return (double)a.weight/a.value<(double)b.weight/b.value;
+        
+    }
+    //  double comp(Item a,Item b){
+    //     return arr[i].value/arr[i].weight;
+    // }
+    
+    //Function to get the maximum total value in the knapsack.
+    double fractionalKnapsack(int W, Item arr[], int n)
+    {
+        // Your code here
+        sort(arr,arr+n,comp);
+        int curr_weight=W;
+        // int Avail_weight=W;
+        double tp=0;
+        for(int i=0;i<n;i++){
+            //
+            // Avail=W-sum;
+            //  Avail_weight=W-curr_weight;
+            if(curr_weight>=arr[i].weight){
+                 curr_weight -=arr[i].weight;
+            
+                tp +=arr[i].value;
+            }
+            else{
+            
+               tp +=(curr_weight * arr[i].value) / (double)arr[i].weight;
+              break;
+            }
+            
+        }
+       return tp; 
+    }
+       
+};

@@ -1,0 +1,30 @@
+//TIME COMPLEXITY:-O(N)
+//AUX. SPACE COMPLEXITY:-O(N)
+
+
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+          int i=0;
+        int j=0;
+        int length=0;
+        int maxi=INT_MIN;
+if(s.length()==0){
+    return 0;
+}
+        unordered_map<char,int>mp;
+        for(int i=0;i<s.size();i++){
+            mp[s[i]]++;//FREQUENCY ++ THEN WE WILL CHECK KI PICHE KE KITNE CHARACTERS KRNE H IF REQUIRED IN NEXT PROCESS
+            length++;
+        while(mp[s[i]]>1){ //PICHE WALE CHARACTERS SARE HATAO JAB TAK CURRENT ELEMENT KI FREQUENCY 1 HO JAYE AUR LENGTH KO BHI -- KRO BECAUSE REPEATING ELEMENT SE PHLE SABHI CHARTACTER KA KOI MAHATVA NHI H
+            mp[s[j]]--;
+            length--;
+            j++;
+        }
+        maxi=max(maxi,length);
+
+        }
+        return maxi;
+    }
+    
+};

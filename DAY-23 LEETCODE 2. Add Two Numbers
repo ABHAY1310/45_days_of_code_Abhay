@@ -1,0 +1,88 @@
+//TIME COMPLEXITY:- O(MAX(L1(LENGTH),L2(LENGTH))
+//AUX. SPACE COMPLEXITY:- O(MAX(L1,L2))
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+  ListNode* reverseList(ListNode* head) {
+         ListNode* prev=NULL;
+          ListNode* curr=head;
+        ListNode* temp=new ListNode();
+
+    while(curr!=NULL){
+        temp=curr->next;
+curr->next=prev;
+prev=curr;
+curr=temp;
+    }
+    delete(temp);
+
+    
+    return prev;
+    }
+
+   ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode* node1=l1;
+         ListNode* node2=l1;
+
+        //  while(node1!=NULL && node2!=NULL){
+       
+        //  }
+    //    l1= reverseList(l1);
+    //    l2= reverseList(l2);
+       int sum=0;
+       int carry=0;
+       ListNode* prev=NULL;
+       while(l1!=NULL || l2!=NULL){
+           if(l1==NULL){
+               sum=l2->val + carry;
+                 l2=l2->next;
+           }
+          else if(l2==NULL){
+               sum=l1->val+carry;
+                 l1=l1->next;
+           }
+           else{
+sum=l1->val + l2->val + carry;
+ l1=l1->next;
+  l2=l2->next;
+           }
+      
+    
+    
+      carry=sum/10;
+      sum=sum%10;
+      ListNode* curr=new ListNode();
+      curr->val=sum;
+      curr->next=prev;
+      prev=curr;
+
+
+       }
+       while(carry>0){
+           sum=0;
+            ListNode* curr=new ListNode();
+            sum=sum+carry;
+              carry=sum/10;
+      sum=sum%10;
+      curr->val=sum;
+
+      curr->next=prev;
+      prev=curr;
+       }
+       prev=reverseList(prev);
+        return prev;
+
+
+    }
+};

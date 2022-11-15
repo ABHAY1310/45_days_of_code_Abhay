@@ -1,0 +1,22 @@
+//ITME COMPLEXITY:-O(N)
+//AUX. SPACE COMPLEXITY:-O(N)
+class Solution {
+public:
+    vector<int> kWeakestRows(vector<vector<int>>& mat, int k) {
+        set<pair<int,int>>s;
+        int soldiers=0;
+for(int i=0;i<mat.size();i++){
+    soldiers=count(mat[i].begin(),mat[i].end(),1);
+s.insert({soldiers,i});
+}
+vector<int>ans;
+for(auto i:s){
+    if(k==0){
+        break;
+    }
+    k--;
+    ans.push_back(i.second);
+}
+return ans;
+    }
+};

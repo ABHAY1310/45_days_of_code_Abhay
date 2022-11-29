@@ -1,0 +1,39 @@
+//TIME COMPLEXITY:-O(N*N)
+//AUX. SPACE COMPELXITY:-O(N)
+class Solution {
+public:
+    vector<vector<int>> generateMatrix(int n) {
+        vector<vector<int>>ans(n,vector<int>(n));
+        int r1=0;
+        int r2=n-1;
+        int c1=0;
+        int c2=n-1;
+        int value=0;
+        while(r1<=r2 && c1<=c2){
+            for(int i=c1;i<=c2;i++){
+          ans[r1][i]=++value;
+          //LEFT RO RIGHT
+            }
+            for(int i=r1+1;i<=r2;i++){
+          ans[i][c2]=++value;
+          //TOP TO BOTTOM
+            }
+            for(int i=c2-1;i>=c1;i--){
+          ans[r2][i]=++value;
+          //RIGHT TO LEFT
+            }
+            for(int i=r2-1;i>r1;i--){
+          ans[i][c1]=++value;
+          //BOTTOM TO TOP
+            }
+           r1++;
+        c1++;
+        r2--;
+        c2--;
+        //TILL R1==R2 && C1==C2 WILL MEET AT CENTER OF MATRIX
+        }
+        return ans;
+    }
+};
+    
+ 

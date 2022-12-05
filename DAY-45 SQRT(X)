@@ -1,0 +1,22 @@
+//TIME COMPLEXITY:-O(N)
+//AUX. SPACE COMPLEXITY:-O(1)
+
+class Solution {
+public:
+	int mySqrt(int x) {
+long long	int i=0;
+  long long  int j=x;
+    while(i<=j){
+      long long  int mid=(i+j)/2;
+        if(mid*mid==x){
+            return mid;
+        }
+         else if(mid*mid>x){
+            j=mid-1;
+        }
+        else{
+            i=mid+1;
+        }
+    }
+    return j;}
+};
